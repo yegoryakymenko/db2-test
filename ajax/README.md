@@ -1,1 +1,1 @@
-https://yegoryakymenko.github.io/db2-test/markup/dist/index.html
+https://yegoryakymenko.github.io/db2-test/ajax/index.html

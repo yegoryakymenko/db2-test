@@ -66,7 +66,11 @@ function getInfo(url) {
 }
 // HTML build function
 function build(result,url) {
- result.sort(compare);
+ if(url == urlApiFilms) {
+  result.sort(compareTitle);
+ } else {
+  result.sort(compare);
+ }
   result.forEach(function(info) {
               let li = document.createElement('li');
               let btnShowMore = document.createElement('button');
@@ -107,6 +111,13 @@ function compare(a,b) {
   if (a.name < b.name)
     return -1;
   if (a.name > b.name)
+    return 1;
+  return 0;
+}
+function compareTitle(a,b) {
+  if (a.title < b.title)
+    return -1;
+  if (a.title > b.title)
     return 1;
   return 0;
 }

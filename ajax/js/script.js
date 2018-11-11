@@ -43,6 +43,8 @@ previous.addEventListener('click', function() {
   getInfo(previous);
 });
 
+
+// Request to API
 function getInfo(url) {
     return new Promise(function (resolve,reject) {
       let xhr = new XMLHttpRequest();
@@ -62,7 +64,7 @@ function getInfo(url) {
 
     });
 }
-
+// HTML build function
 function build(result,url) {
  result.sort(compare);
   result.forEach(function(info) {
@@ -100,6 +102,7 @@ function build(result,url) {
               })
             })
 }
+// Alphabet sort
 function compare(a,b) {
   if (a.name < b.name)
     return -1;
@@ -107,8 +110,3 @@ function compare(a,b) {
     return 1;
   return 0;
 }
-//
-//
-//  Otdaenlp  -  в спсок изначально вложить список и сделать ему display: none;
-// Функция отрисовывает масивчик Array filter
-// sort() должен изначально собирать элементы, затем сортировать и рендерить по нажатию

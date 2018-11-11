@@ -64,19 +64,19 @@ function getInfo(url) {
               let liProp = document.createElement('li');
               let ulProp = document.createElement('ul');
               btnShowMore.innerHTML = 'Show more';
-              if (url == urlApiFilms) {
+              if (url.includes('films/')) {
                 li.innerHTML = info.title;
                 liProp.innerHTML = `Director: ${info.director} <br> Episode: ${info.episode_id} <br> Release Date: ${info.release_date}`;
-            } else if(url == urlApiPlanets) {
+            } else if(url.includes('planets/')) {
                 li.innerHTML = info.name;
                 liProp.innerHTML = `Climate: ${info.climate} <br> Diameter: ${info.diameter} <br> Orbital Period: ${info.orbital_period}`;
-            } else if(url == urlApiSpecies) {
+            } else if(url.includes('species/')) {
                 li.innerHTML = info.name;
                 liProp.innerHTML = `Average Height: ${info.average_height} <br> Avarage Lifespan: ${info.average_lifespan} <br> Classification: ${info.classification}`;
-            } else if(url == urlApiVehicles){
+            } else if(url.includes('vehicles/')){
                 li.innerHTML = info.name;
-                liProp.innerHTML = `Crew: ${info.crew} <br> Manufacturer: ${info.manufacturer} <br> Classification: ${info.cost_in_credits}`;
-            } else if(url == urlApiStarships){
+                liProp.innerHTML = `Crew: ${info.crew} <br> Manufacturer: ${info.manufacturer} <br> Cost in credits: ${info.cost_in_credits}`;
+            } else if(url.includes('starships/')){
                 li.innerHTML = info.name;
                 liProp.innerHTML = `Model: ${info.model} <br> Passengers: ${info.passengers} <br> Crew: ${info.crew}`;
             } else {

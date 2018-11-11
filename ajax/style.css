@@ -32,7 +32,8 @@ button {
 	border-radius: 10px;
 }
 .answer-field {
-	min-width: 600px;
+	min-width: 500px;
+	max-width: 600px;
 	min-height: 500px;
 	margin-top: 50px;
 	border: 2px solid #fff;
@@ -53,5 +54,21 @@ button {
 ul {
 	list-style: none;
 	color: #fff;
-	font-size: 1.5em;
+	font-size: 1.5rem;
+}
+ul li {
+	display: inline-block;
+	width: 50%;
+}
+ul li:last-of-type {
+	margin-bottom: 50px;
+}
+li ul {
+	display: none;
+}
+.active {
+	display: block;
+}
+li + button {
+	vertical-align: top;
 }

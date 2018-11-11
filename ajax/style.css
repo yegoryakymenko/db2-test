@@ -71,6 +71,7 @@ li ul {
 }
 li + button {
 	vertical-align: top;
+	margin-bottom: 20px;
 }
 li ul li {
 	width: 100%;

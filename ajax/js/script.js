@@ -42,23 +42,30 @@ next.addEventListener('click', function() {
 previous.addEventListener('click', function() {
   getInfo(previous);
 });
-sort.addEventListener('click', function() {
-
-})
 
 function getInfo(url) {
-  let xhr = new XMLHttpRequest();
+    return new Promise(function (resolve,reject) {
+      let xhr = new XMLHttpRequest();
    xhr.open('GET', url, true);
-  xhr.onreadystatechange = function(){
-        if(xhr.readyState == 4 && xhr.status == 200){
+  xhr.onload = function () {
+      if (this.status >= 200 && this.status < 300){
             let response = JSON.parse(xhr.responseText);
             let result = response.results;
-            console.log(result);
             next = response.next;
             previous = response.previous;
             ul.innerHTML = "";
-            result.forEach(info => {
-              console.log(info);
+            resolve(build(result,url));
+        }
+    }
+ 
+  xhr.send();
+
+    });
+}
+
+function build(result,url) {
+ result.sort(compare);
+  result.forEach(function(info) {
               let li = document.createElement('li');
               let btnShowMore = document.createElement('button');
               let liProp = document.createElement('li');
@@ -90,21 +97,18 @@ function getInfo(url) {
 
               btnShowMore.addEventListener('click', function() {
                 ulProp.classList.toggle('active');
-                
-               
               })
             })
-             
-        }
-    }
- 
-  xhr.send();
-
 }
-// Сделать функцию в котрой в переменную будет записываться текущий name
-// и по нему выводить инфу по
-// 1. Клик по кнопке
-//  2. После клик аппендиться список со свойствами, при повторном клике убирается
+function compare(a,b) {
+  if (a.name < b.name)
+    return -1;
+  if (a.name > b.name)
+    return 1;
+  return 0;
+}
+//
+//
 //  Otdaenlp  -  в спсок изначально вложить список и сделать ему display: none;
 // Функция отрисовывает масивчик Array filter
-//
+// sort() должен изначально собирать элементы, затем сортировать и рендерить по нажатию

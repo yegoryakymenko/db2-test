@@ -37,7 +37,7 @@ starships.addEventListener('click', function() {
   getInfo(urlApiStarships);
 });
 next.addEventListener('click', function() {
-  getInfo(next);
+    getInfo(next);
 });
 previous.addEventListener('click', function() {
   getInfo(previous);
@@ -65,10 +65,23 @@ function getInfo(url) {
               let ulProp = document.createElement('ul');
               btnShowMore.innerHTML = 'Show more';
               if (url == urlApiFilms) {
-              li.innerHTML = info.title;
+                li.innerHTML = info.title;
+                liProp.innerHTML = `Director: ${info.director} <br> Episode: ${info.episode_id} <br> Release Date: ${info.release_date}`;
+            } else if(url == urlApiPlanets) {
+                li.innerHTML = info.name;
+                liProp.innerHTML = `Climate: ${info.climate} <br> Diameter: ${info.diameter} <br> Orbital Period: ${info.orbital_period}`;
+            } else if(url == urlApiSpecies) {
+                li.innerHTML = info.name;
+                liProp.innerHTML = `Average Height: ${info.average_height} <br> Avarage Lifespan: ${info.average_lifespan} <br> Classification: ${info.classification}`;
+            } else if(url == urlApiVehicles){
+                li.innerHTML = info.name;
+                liProp.innerHTML = `Crew: ${info.crew} <br> Manufacturer: ${info.manufacturer} <br> Classification: ${info.cost_in_credits}`;
+            } else if(url == urlApiStarships){
+                li.innerHTML = info.name;
+                liProp.innerHTML = `Model: ${info.model} <br> Passengers: ${info.passengers} <br> Crew: ${info.crew}`;
             } else {
-              li.innerHTML = info.name;
-              liProp.innerHTML = `Height: ${info.height} <br> Mass: ${info.mass} <br> Birth year ${info.birth_year}`;
+               li.innerHTML = info.name;
+               liProp.innerHTML = `Height: ${info.height} <br> Mass: ${info.mass} <br> Birth year ${info.birth_year}`;
             }
               ul.appendChild(li);
               ul.appendChild(btnShowMore);
@@ -93,5 +106,5 @@ function getInfo(url) {
 // 1. Клик по кнопке
 //  2. После клик аппендиться список со свойствами, при повторном клике убирается
 //  Otdaenlp  -  в спсок изначально вложить список и сделать ему display: none;
-//
+// Функция отрисовывает масивчик Array filter
 //

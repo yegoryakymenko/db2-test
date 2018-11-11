@@ -33,7 +33,7 @@ button {
 }
 .answer-field {
 	min-width: 500px;
-	max-width: 600px;
+	max-width: 750px;
 	min-height: 500px;
 	margin-top: 50px;
 	border: 2px solid #fff;
@@ -71,4 +71,7 @@ li ul {
 }
 li + button {
 	vertical-align: top;
+}
+li ul li {
+	width: 100%;
 }
